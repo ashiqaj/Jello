@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import authRoutes from './routes/auth.route.js';
 import messegeRoutes from './routes/messege.route.js';
 import {connectDb} from './lib/db.js';
+import cookieParser from 'cookie-parser';
 import path from 'path';
 
 const app = express();
@@ -11,7 +12,7 @@ const __dirname = path.resolve();
 dotenv.config();
 
 app.use(express.json());
-
+app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/messeges", messegeRoutes);
 
